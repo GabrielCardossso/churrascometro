@@ -3,27 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Churrascômetro do Gabriel 🍖</title>
+  <title>Churrascômetro Pro 🍖</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+  <div class="theme-switch">
+    <i class="fas fa-sun"></i>
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider round"></span>
+    </label>
+    <i class="fas fa-moon"></i>
+  </div>
+
   <div class="container">
-    <h1>🔥 Churrascômetro do Gabriel 🍖</h1>
-    <p>Calcule a quantidade ideal de carne para seu churrasco!</p>
+    <div class="header">
+      <div class="logo-animation">
+        <i class="fas fa-fire"></i>
+        <h1>Churrascômetro Pro</h1>
+        <i class="fas fa-drumstick-bite"></i>
+      </div>
+      <p>Calcule tudo que precisa para seu churrasco perfeito!</p>
+    </div>
 
     <form id="form-churrasco">
-      <div class="campo">
-        <label for="adultos">🧑‍🍽️ Adultos:</label>
-        <input type="number" id="adultos" placeholder="Quantidade de adultos" min="0" required>
+      <div class="sections-grid">
+        <div class="section pessoas-section">
+          <h3><i class="fas fa-users"></i> Pessoas</h3>
+          <div class="campo">
+            <label for="adultos">🧑 Adultos:</label>
+            <input type="number" id="adultos" placeholder="Quantidade" min="0" required>
+          </div>
+          <div class="campo">
+            <label for="criancas">🧒 Crianças:</label>
+            <input type="number" id="criancas" placeholder="Quantidade" min="0" required>
+          </div>
+          <div class="campo">
+            <label for="vegetarianos">🥗 Vegetarianos:</label>
+            <input type="number" id="vegetarianos" placeholder="Quantidade" min="0">
+          </div>
+        </div>
+
+        <div class="section duracao-section">
+          <h3><i class="far fa-clock"></i> Duração</h3>
+          <div class="campo">
+            <label for="duracao">⏱️ Tempo (horas):</label>
+            <input type="number" id="duracao" placeholder="Duração" min="1" value="4" required>
+          </div>
+        </div>
+
+        <div class="section opcoes-section">
+          <h3><i class="fas fa-utensils"></i> Opções</h3>
+          <div class="checkbox-grid">
+            <label class="checkbox-container">
+              <input type="checkbox" id="cerveja" checked>
+              <span class="checkmark"></span>
+              🍺 Cerveja
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" id="refrigerante" checked>
+              <span class="checkmark"></span>
+              🥤 Refrigerante
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" id="pao-alho" checked>
+              <span class="checkmark"></span>
+              🥖 Pão de Alho
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" id="farofa" checked>
+              <span class="checkmark"></span>
+              🥄 Farofa
+            </label>
+          </div>
+        </div>
       </div>
-      <div class="campo">
-        <label for="criancas">🧒‍🍽️ Crianças:</label>
-        <input type="number" id="criancas" placeholder="Quantidade de crianças" min="0" required>
-      </div>
-      <button type="submit" class="button">Calcular 🔥</button>
+
+      <button type="submit" class="button-calculate">
+        <i class="fas fa-calculator"></i> Calcular
+      </button>
     </form>
 
-    <div id="resultado" class="resultado"></div>
+    <div id="resultado" class="resultado">
+      <!-- Resultado será inserido via JavaScript -->
+    </div>
+
+    <div class="dicas-section">
+      <h3><i class="fas fa-lightbulb"></i> Dicas para um churrasco perfeito</h3>
+      <div class="dicas-carousel">
+        <!-- Dicas serão inseridas via JavaScript -->
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
