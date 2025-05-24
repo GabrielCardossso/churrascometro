@@ -1,46 +1,88 @@
-# 🥩 Churrascômetro do Gabriel 🍖
+# 🥩 Churrascômetro Pro 🍖
 
-Este é um projeto simples e divertido que ajuda você a calcular a quantidade ideal de **carne**, **refrigerante** e **salame** para um churrasco, baseado na quantidade de adultos e crianças.
+Uma calculadora inteligente e moderna que ajuda você a planejar seu churrasco perfeito! Com interface amigável e cálculos precisos baseados no número de convidados e duração do evento.
 
-## 📦 Arquivos incluídos
+## ✨ Funcionalidades
 
-- `index.html` — Estrutura da página com formulário para entrada de dados.
-- `styles.css` — Estilos modernos e coloridos para uma boa aparência.
-- `script.js` — Lógica de cálculo e exibição do resultado na tela.
+- 🌓 Modo claro/escuro
+- 👥 Cálculo por tipo de convidado:
+  - Adultos
+  - Crianças
+  - Vegetarianos
+- ⏱️ Ajuste automático baseado na duração do evento
+- 🍖 Cálculo completo de itens:
+  - Carne Vermelha
+  - Linguiça
+  - Frango
+  - Pão de Alho
+  - Farofa
+  - Cerveja
+  - Refrigerante
+  - Gelo
+  - Carvão
+  - Guardanapos
+- 💡 Dicas úteis para um churrasco perfeito
+- 📱 Design responsivo para todos os dispositivos
 
-## 🚀 Como usar
+## 🧮 Cálculos Utilizados
 
-1. Clone ou baixe este repositório.
-2. Abra o arquivo `index.html` em um navegador moderno.
-3. Informe a quantidade de adultos e crianças que participarão do churrasco.
-4. Clique em **Calcular 🔥**.
-5. Veja o resultado com a quantidade ideal de:
-   - Carne (em kg)
-   - Refrigerante (em litros)
-   - Salame (em kg)
+### Por Adulto (4 horas de churrasco)
+- 400g de carne vermelha
+- 200g de linguiça
+- 250g de frango
+- 1.2L de cerveja (se selecionado)
+- 500ml de refrigerante (se selecionado)
 
-## 📐 Cálculos utilizados
+### Por Criança (4 horas de churrasco)
+- 200g de carne vermelha
+- 200g de linguiça
+- 250g de frango
+- 500ml de refrigerante (se selecionado)
 
-- **Adultos**:
-  - 400g de carne
-  - 750ml de refrigerante
-  - 150g de salame
+### Outros Itens
+- 2 unidades de pão de alho por pessoa
+- 100g de farofa por pessoa
+- 800g de gelo por pessoa
+- 1kg de carvão por pessoa
+- 4 guardanapos por pessoa
 
-- **Crianças**:
-  - 200g de carne
-  - 300ml de refrigerante
-  - 75g de salame
+*Obs: As quantidades são ajustadas automaticamente conforme a duração do evento*
 
-As quantidades são somadas e convertidas para **kg** ou **litros**, com duas casas decimais.
+## 🚀 Como Usar
 
-## 💡 Requisitos
+1. Acesse a página abrindo o arquivo `index.html`
+2. Informe a quantidade de adultos, crianças e vegetarianos
+3. Defina a duração do churrasco em horas
+4. Selecione os itens opcionais desejados:
+   - Cerveja
+   - Refrigerante
+   - Pão de Alho
+   - Farofa
+5. Clique em "Calcular" e receba a lista completa de itens
 
-- Navegador moderno com suporte a HTML5, CSS3 e JavaScript ES6.
-- Não é necessário servidor ou instalação — é só abrir o arquivo `index.html`.
+## 💻 Tecnologias Utilizadas
 
-## 🎨 Visual
+- HTML5
+- CSS3 com variáveis para tema claro/escuro
+- JavaScript ES6+
+- Font Awesome para ícones
+- Design responsivo e moderno
 
-O projeto usa uma interface amigável e divertida, com ícones e estilos que remetem ao tema de churrasco.
+## 📱 Compatibilidade
+
+- Chrome
+- Firefox
+- Safari
+- Edge
+- Dispositivos móveis e tablets
+
+## 💡 Dicas Incluídas
+
+O sistema inclui dicas importantes para o sucesso do seu churrasco:
+- Temperatura ideal da brasa
+- Tempo de preparo
+- Tempero adequado
+- Ordem de assar as carnes
 
 ## 📄 Licença
 
