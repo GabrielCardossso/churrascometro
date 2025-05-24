@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Churrascômetro do Gabriel 🍖</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 Churrascômetro do Gabriel 🍖</h1>
+    <p>Calcule a quantidade ideal de carne para seu churrasco!</p>
+
+    <form id="form-churrasco">
+      <div class="campo">
+        <label for="adultos">🧑‍🍽️ Adultos:</label>
+        <input type="number" id="adultos" placeholder="Quantidade de adultos" min="0" required>
+      </div>
+      <div class="campo">
+        <label for="criancas">🧒‍🍽️ Crianças:</label>
+        <input type="number" id="criancas" placeholder="Quantidade de crianças" min="0" required>
+      </div>
+      <button type="submit" class="button">Calcular 🔥</button>
+    </form>
+
+    <div id="resultado" class="resultado"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
