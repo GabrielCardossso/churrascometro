@@ -1,41 +1,46 @@
 :root {
-  --primary-color: #ff512f;
-  --secondary-color: #dd2476;
+  --primary-color: #FF4D00;
+  --secondary-color: #8B0000;
   --text-color: #ffffff;
-  --text-color-secondary: #f0f0f0;
-  --background: linear-gradient(120deg, #ff512f, #dd2476);
-  --card-bg: rgba(0, 0, 0, 0.6);
-  --card-bg-secondary: rgba(255, 255, 255, 0.1);
-  --accent-color: #ffda44;
-  --success-color: #4CAF50;
+  --text-color-secondary: #FFC107;
+  --background: linear-gradient(135deg, #1F1300 0%, #3D1F00 100%);
+  --card-bg: rgba(59, 29, 0, 0.9);
+  --card-bg-secondary: rgba(80, 40, 0, 0.8);
+  --accent-color: #FFA000;
+  --success-color: #FF6B00;
   --border-radius: 20px;
-  --transition: all 0.3s ease;
-  --input-bg: rgba(255, 255, 255, 0.1);
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --input-bg: rgba(59, 29, 0, 0.8);
   --input-text: #ffffff;
-  --input-border: transparent;
-  --input-border-focus: #ffda44;
-  --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  --section-border: rgba(255, 255, 255, 0.1);
-  --checkbox-bg: rgba(255, 255, 255, 0.2);
+  --input-border: #FF4D00;
+  --input-border-focus: #FFA000;
+  --card-shadow: 0 8px 32px rgba(255, 77, 0, 0.3);
+  --section-border: rgba(255, 160, 0, 0.2);
+  --checkbox-bg: rgba(59, 29, 0, 0.8);
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
 }
 
 [data-theme="light"] {
-  --primary-color: #ff6b2b;
-  --secondary-color: #e91e63;
-  --text-color: #333333;
-  --text-color-secondary: #666666;
-  --background: linear-gradient(120deg, #f8f9fa, #e9ecef);
-  --card-bg: #ffffff;
-  --card-bg-secondary: #f8f9fa;
-  --accent-color: #ff6b2b;
-  --success-color: #28a745;
-  --input-bg: #ffffff;
-  --input-text: #333333;
-  --input-border: #dee2e6;
-  --input-border-focus: #ff6b2b;
-  --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --section-border: #dee2e6;
-  --checkbox-bg: #e9ecef;
+  --primary-color: #FF4D00;
+  --secondary-color: #CC3300;
+  --text-color: #2D1810;
+  --text-color-secondary: #663300;
+  --background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+  --card-bg: #FFFFFF;
+  --card-bg-secondary: #FFF8E1;
+  --accent-color: #FF6B00;
+  --success-color: #FF4D00;
+  --input-bg: #FFFFFF;
+  --input-text: #2D1810;
+  --input-border: #FFB74D;
+  --input-border-focus: #FF4D00;
+  --card-shadow: 0 8px 32px rgba(255, 77, 0, 0.15);
+  --section-border: #FFE0B2;
+  --checkbox-bg: #FFF3E0;
 }
 
 * {
@@ -125,7 +130,29 @@ input:checked + .slider:before {
   box-shadow: var(--card-shadow);
   max-width: 800px;
   width: 100%;
-  animation: fadeIn 0.5s ease-out;
+  animation: smokeUp 0.8s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 160, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 77, 0, 0.05) 10px,
+    rgba(255, 77, 0, 0.05) 20px
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .header {
@@ -139,20 +166,46 @@ input:checked + .slider:before {
   justify-content: center;
   gap: 15px;
   margin-bottom: 20px;
+  position: relative;
+}
+
+.logo-animation::before {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.2) 0%, transparent 70%);
+  animation: fireGlow 3s ease-in-out infinite;
 }
 
 .logo-animation i {
-  font-size: 2rem;
-  animation: bounce 2s infinite;
+  font-size: 2.5rem;
+  animation: flameFlicker 3s infinite;
   color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 160, 0, 0.8);
 }
 
 .logo-animation h1 {
-  font-size: 2.5rem;
-  margin: 0;
-  background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #FF4D00, #FFA000, #FF6B00);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: fireText 5s ease infinite;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.logo-animation h1::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  animation: sparkle 3s infinite;
 }
 
 .sections-grid {
@@ -164,14 +217,36 @@ input:checked + .slider:before {
 
 .section {
   background: var(--card-bg-secondary);
-  padding: 20px;
+  padding: 25px;
   border-radius: var(--border-radius);
   transition: var(--transition);
+  border: 1px solid var(--section-border);
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(255, 77, 0, 0.05) 50%, 
+    transparent 100%
+  );
+  background-size: 200% 200%;
+  animation: grillPattern 3s linear infinite;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .section:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--card-shadow);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(255, 77, 0, 0.2);
 }
 
 .section h3 {
@@ -184,6 +259,8 @@ input:checked + .slider:before {
 
 .campo {
   margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
 }
 
 .campo label {
@@ -191,22 +268,35 @@ input:checked + .slider:before {
   margin-bottom: 8px;
   font-weight: 500;
   color: var(--text-color);
+  position: relative;
+  z-index: 2;
 }
 
 .campo input {
   width: 100%;
-  padding: 10px;
+  padding: 12px 20px;
   border: 2px solid var(--input-border);
-  border-radius: 8px;
+  border-radius: 15px;
   font-size: 1rem;
   transition: var(--transition);
   background: var(--input-bg);
   color: var(--input-text);
+  position: relative;
+  z-index: 2;
+  cursor: text;
+}
+
+.campo input:hover {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 10px rgba(255, 160, 0, 0.1);
 }
 
 .campo input:focus {
   border-color: var(--input-border-focus);
   outline: none;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 160, 0, 0.2);
+  background: var(--input-bg);
 }
 
 .checkbox-grid {
@@ -218,22 +308,34 @@ input:checked + .slider:before {
 .checkbox-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   cursor: pointer;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px 15px;
+  border-radius: 12px;
   transition: var(--transition);
-  color: var(--text-color);
+  background: var(--card-bg-secondary);
+  border: 1px solid var(--section-border);
+  position: relative;
+  z-index: 2;
+}
+
+.checkbox-container input[type="checkbox"] {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .checkbox-container:hover {
-  background: var(--card-bg-secondary);
+  transform: translateX(5px);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
 }
 
 .button-calculate {
   width: 100%;
-  padding: 15px;
-  background: var(--accent-color);
+  padding: 18px;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  background-size: 200% 200%;
   border: none;
   border-radius: var(--border-radius);
   color: #ffffff;
@@ -245,27 +347,43 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  animation: fireButton 5s infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.button-calculate::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 160, 0, 0.2) 0%, transparent 70%);
+  animation: rotateFire 10s linear infinite;
 }
 
 .button-calculate:hover {
-  transform: scale(1.02);
-  box-shadow: var(--card-shadow);
-  opacity: 0.95;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
 }
 
 .resultado {
   margin-top: 30px;
-  padding: 20px;
+  padding: 25px;
   border-radius: var(--border-radius);
   background: var(--card-bg-secondary);
   opacity: 0;
   transform: translateY(20px);
   transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
 }
 
 .resultado.mostrar {
   opacity: 1;
   transform: translateY(0);
+  animation: sizzle 2s infinite;
 }
 
 .resultado h3 {
@@ -318,16 +436,18 @@ input:checked + .slider:before {
 }
 
 .dica-card {
-  min-width: 250px;
-  padding: 20px;
+  min-width: 280px;
+  padding: 25px;
   background: var(--card-bg-secondary);
   border-radius: var(--border-radius);
   transition: var(--transition);
-  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  transform-origin: center;
 }
 
 .dica-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.03);
   box-shadow: var(--card-shadow);
 }
 
@@ -335,10 +455,10 @@ input:checked + .slider:before {
   color: var(--accent-color);
 }
 
-@keyframes fadeIn {
+@keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -355,15 +475,39 @@ input:checked + .slider:before {
   }
 }
 
-@keyframes pulse {
+@keyframes gradientText {
   0% {
-    transform: scale(1);
+    background-position: 0% 50%;
   }
   50% {
-    transform: scale(1.05);
+    background-position: 100% 50%;
   }
   100% {
-    transform: scale(1);
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 242, 254, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 242, 254, 0);
   }
 }
 
@@ -378,6 +522,110 @@ input:checked + .slider:before {
   
   .logo-animation h1 {
     font-size: 2rem;
+  }
+}
+
+@keyframes fireText {
+  0%, 100% {
+    background-position: 0% 50%;
+    text-shadow: 0 0 10px rgba(255, 160, 0, 0.5);
+  }
+  50% {
+    background-position: 100% 50%;
+    text-shadow: 0 0 20px rgba(255, 77, 0, 0.8);
+  }
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: rotate(-2deg) scale(1);
+    opacity: 0.9;
+  }
+  25% {
+    transform: rotate(3deg) scale(1.1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-1deg) scale(0.95);
+    opacity: 0.8;
+  }
+  75% {
+    transform: rotate(2deg) scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+@keyframes fireGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleX(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+}
+
+@keyframes smokeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fireButton {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes rotateFire {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sizzle {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 77, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 77, 0, 0);
+  }
+}
+
+@keyframes grillPattern {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 200%;
   }
 }
   

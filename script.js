@@ -1,10 +1,8 @@
-// Configurações do tema
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle.addEventListener('change', () => {
     document.body.setAttribute('data-theme', themeToggle.checked ? 'light' : 'dark');
 });
 
-// Dicas para o churrasco
 const dicas = [
     {
         icon: '🔥',
@@ -28,7 +26,6 @@ const dicas = [
     }
 ];
 
-// Adiciona as dicas ao carrossel
 const dicasCarousel = document.querySelector('.dicas-carousel');
 dicas.forEach(dica => {
     const dicaCard = document.createElement('div');
@@ -41,43 +38,36 @@ dicas.forEach(dica => {
     dicasCarousel.appendChild(dicaCard);
 });
 
-// Cálculos do churrasco
 document.getElementById('form-churrasco').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Pessoas
     const adultos = parseInt(document.getElementById('adultos').value) || 0;
     const criancas = parseInt(document.getElementById('criancas').value) || 0;
     const vegetarianos = parseInt(document.getElementById('vegetarianos').value) || 0;
 
-    // Duração em horas
     const duracao = parseInt(document.getElementById('duracao').value) || 4;
 
-    // Opções selecionadas
     const cerveja = document.getElementById('cerveja').checked;
     const refrigerante = document.getElementById('refrigerante').checked;
     const paoAlho = document.getElementById('pao-alho').checked;
     const farofa = document.getElementById('farofa').checked;
 
-    // Cálculos base por pessoa
     const calculosPorPessoa = {
-        carnePorAdulto: 400, // gramas
-        carnePorCrianca: 200, // gramas
-        linguicaPorPessoa: 200, // gramas
-        frangoPorPessoa: 250, // gramas
-        paoDeAlhoPorPessoa: 2, // unidades
-        farofaPorPessoa: 100, // gramas
-        cervejaPorAdulto: 1200, // ml
-        refrigerantePorPessoa: 500, // ml
-        geloPorPessoa: 800, // gramas
-        carvao: 1000, // gramas
-        guardanapos: 4 // unidades
+        carnePorAdulto: 400, 
+        carnePorCrianca: 200,
+        linguicaPorPessoa: 200,
+        frangoPorPessoa: 250,
+        paoDeAlhoPorPessoa: 2, 
+        farofaPorPessoa: 100, 
+        cervejaPorAdulto: 1200, 
+        refrigerantePorPessoa: 500, 
+        geloPorPessoa: 800, 
+        carvao: 1000, 
+        guardanapos: 4 
     };
 
-    // Fatores de duração
     const fatorDuracao = Math.min(2, duracao / 4);
 
-    // Cálculos totais
     const totalPessoas = adultos + (criancas * 0.5) + vegetarianos;
     const totalCarneVermelha = ((adultos * calculosPorPessoa.carnePorAdulto) + (criancas * calculosPorPessoa.carnePorCrianca)) * fatorDuracao;
     const totalLinguica = (totalPessoas * calculosPorPessoa.linguicaPorPessoa) * fatorDuracao;
@@ -90,7 +80,6 @@ document.getElementById('form-churrasco').addEventListener('submit', function (e
     const totalCarvao = Math.ceil((totalPessoas * calculosPorPessoa.carvao) * fatorDuracao);
     const totalGuardanapos = Math.ceil(totalPessoas * calculosPorPessoa.guardanapos);
 
-    // Formata os resultados
     const formatarPeso = (gramas) => {
         return gramas >= 1000 ? `${(gramas/1000).toFixed(1)} kg` : `${gramas} g`;
     };
@@ -99,7 +88,6 @@ document.getElementById('form-churrasco').addEventListener('submit', function (e
         return ml >= 1000 ? `${(ml/1000).toFixed(1)} L` : `${ml} ml`;
     };
 
-    // Monta o grid de resultados
     const resultado = document.getElementById('resultado');
     resultado.innerHTML = `
         <h3 style="margin-bottom: 20px; color: var(--accent-color);">
